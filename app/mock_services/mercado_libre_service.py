@@ -4,80 +4,80 @@ from flask_restful import Resource
 
 mock_results = {
     '1': {
-        'name': 'Jose galdos',
+        'name': 'Jose Galdos',
         "address": {
-            "state": "AR-C",
-            "city": "Palermo",
-            "address": "Test Address 123",
+            "state": "LM-O",
+            "city": "Lima",
+            "address": "Avenida Comandante, 390",
             "zip_code": "1414"
         },
         "phone": {
             "area_code": "01",
-            "number": "1111-1111",
+            "number": "0681-52947",
             "extension": "",
           },
         "identification": {
             "type": "DNI",
-            "number": "1111111"
+            "number": "843641869"
           },
-        "email": "test_user_38730994@testuser.com",
+        "email": "jose_galdos@gmail.com",
     },
     '2': {
         'name': 'Pedro Munoz',
         "address": {
-            "state": "AR-C",
-            "city": "Palermo",
+            "state": "LO-C",
+            "city": "Loreto",
             "address": "Test Address 123",
             "zip_code": "1414"
         },
         "phone": {
-            "area_code": "01",
-            "number": "1111-1111",
+            "area_code": "05",
+            "number": "9835-86953",
             "extension": "",
         },
         "identification": {
             "type": "DNI",
-            "number": "1111111"
+            "number": "75980754"
         },
-        "email": "test_user_38730994@testuser.com",
+        "email": "mupetest@fastmail.com",
     },
     '3': {
         'name': 'Roger Peralta',
         "address": {
-            "state": "AR-C",
-            "city": "Palermo",
-            "address": "Test Address 123",
-            "zip_code": "1414"
+            "state": "AR-J",
+            "city": "Arequipa",
+            "address": "Calle America 827",
+            "zip_code": "960"
         },
         "phone": {
-            "area_code": "01",
-            "number": "1111-1111",
+            "area_code": "54",
+            "number": "9654-43078",
             "extension": "",
         },
         "identification": {
             "type": "DNI",
-            "number": "1111111"
+            "number": "64905312"
         },
-        "email": "test_user_38730994@testuser.com",
+        "email": "eddie.pa@company.com",
     },
     '4': {
         'name': 'Victoria Melo',
         "address": {
-            "state": "AR-C",
-            "city": "Palermo",
-            "address": "Test Address 123",
-            "zip_code": "1414"
+            "state": "CZ-B",
+            "city": "Cuzco",
+            "address": "Aranwa Spa",
+            "zip_code": "487"
         },
         "phone": {
-            "area_code": "01",
-            "number": "1111-1111",
+            "area_code": "03",
+            "number": "9430-65187",
             "extension": "",
         },
         "identification": {
             "type": "DNI",
-            "number": "1111111"
+            "number": "654879056"
         },
-        "email": "test_user_38730994@testuser.com",
+        "email": "Vick@hotmail.com",
     },
 }
 

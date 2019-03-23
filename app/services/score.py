@@ -88,7 +88,7 @@ def email_score(email):
 def phone_score(phone):
     return {'score': 100,
             'details': {
-                'textmagic': True
+                'osiptel': True
             }}
 
 
