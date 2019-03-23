@@ -2,8 +2,8 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
-from app.pe .test import test_peru
-from app.services .score import Score
+from app.pe.test import test_peru
+from app.services.score import Score
 
 app = Flask(__name__)
 api = Api(app)

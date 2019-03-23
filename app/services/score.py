@@ -2,10 +2,13 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
+import json
+
 app = Flask(__name__)
 api = Api(app)
 
 parser = reqparse.RequestParser()
+parser.add_argument('profile')
 parser.add_argument('name')
 parser.add_argument('address')
 parser.add_argument('id')
@@ -18,11 +21,15 @@ class Score(Resource):
 
         args = parser.parse_args()
 
-        id_data = id_score(args['id'])
-        name_data = name_score(args['name'])
-        address_data = address_score(args['address'])
-        email_data = email_score(args['email'])
-        phone_data = phone_score(args['phone'])
+        profile_json = args['profile']
+
+        profile_data = json.loads(profile_json)
+
+        id_data = id_score(profile_data['id'])
+        name_data = name_score(profile_data['name'])
+        address_data = address_score(profile_data['address'])
+        email_data = email_score(profile_data['email'])
+        phone_data = phone_score(profile_data['phone'])
 
         details = {
             'id': id_data['details'],
@@ -43,7 +50,7 @@ class Score(Resource):
 def address_score(address):
     return {'score': 100,
             'details': {
-                'gmaps': True
+                'gmaps': False
             }}
 
 
@@ -72,7 +79,8 @@ def name_score(name):
     return {'score': 100,
             'details': {
                 'sunat': True,
-                'cip': True
+                'name': name,
+                'cip': True,
             }}
 
 
