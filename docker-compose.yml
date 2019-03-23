@@ -1,0 +1,42 @@
+version: '3'
+volumes:
+  scrapydata:
+  db_data:
+
+services:
+  # PostgreSQL database
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+
+  scrapyd:
+  # Scrapyd server if its need
+    image: vimagick/scrapyd:latest
+    ports:
+      - "6800:6800"
+    volumes:
+      - scrapydata:/var/lib/scrapyd/
+
+  flask:
+    image: webapp-flask
+    build:
+      context: .
+      dockerfile: Dockerfile-flask
+    volumes:
+      - "./:/app"
+    links:
+      - db:db
+      - scrapyd:scrapyd
+
+  nginx:
+    image: webapp-nginx
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - 5000:80
+    depends_on:
+      - flask
