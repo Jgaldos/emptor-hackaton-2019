@@ -2,14 +2,35 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
-from app.pe.test import test_peru
-from app.services.score import Score
-from app.mock_services.mercado_libre_service import MockMercadoLibre
+import requests
+
+from app.pe .test import test_peru
+from app.services .score import Score
+from app.mock_services .mercado_libre_service import MockMercadoLibre
+from app.models import db, Verified_ids
 
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(Score, '/peru')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:@db:5432/hackaton'
+db.init_app(app)
+
+
+class Verify(Resource):
+    def get(self, ml_id):
+        user = Verified_ids.query.filter_by(id=ml_id).first()
+        if user:
+            return user.data()
+        else:
+            req_ml = requests.get('http://flask/mock_ml/' + str(ml_id))
+            if req_ml.status_code == 200:
+                return req_ml.text
+            else:
+                return {'status': 'not found'}
+
+
+api.add_resource(Verify, '/peru/<int:ml_id>')
 api.add_resource(MockMercadoLibre, '/mock_ml/<string:user_id>')
 
 

@@ -2,3 +2,5 @@ docker-compose==1.23.2
 Flask==1.0.2
 uWSGI==2.0.17.1
 Flask-RESTful==0.3.6
+flask-sqlalchemy==2.3.2
+psycopg2==2.7.6.1
