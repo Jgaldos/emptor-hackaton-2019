@@ -23,9 +23,11 @@ class Verify(Resource):
         if user:
             return user.data()
         else:
-            req_ml = requests.get('http://flask/mock_ml/' + str(ml_id))
-            if req_ml.status_code == 200:
-                return req_ml.text
+            req_ml = MockMercadoLibre()
+            response = req_ml.get(str(ml_id))
+            score_function = Score()
+            if response:
+                return score_function.evaluate(response)
             else:
                 return {'status': 'not found'}
 

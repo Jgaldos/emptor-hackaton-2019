@@ -18,12 +18,18 @@ parser.add_argument('email')
 
 class Score(Resource):
     def post(self):
-
         args = parser.parse_args()
 
-        profile_json = args['profile']
+        return self.evaluate(args)
 
-        profile_data = json.loads(profile_json)
+    def evaluate(self, profile_json):
+
+        # args = parser.parse_args()
+
+        # profile_json = args['profile']
+
+        # profile_data = json.loads(profile_json)
+        profile_data = profile_json
 
         id_data = id_score(profile_data['identification'])
         name_data = name_score(profile_data['name'])

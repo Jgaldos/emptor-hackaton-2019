@@ -23,7 +23,7 @@ mock_results = {
         "email": "test_user_38730994@testuser.com",
     },
     '2': {
-        'name': 'Pedro Muñoz',
+        'name': 'Pedro Munoz',
         "address": {
             "state": "AR-C",
             "city": "Palermo",
