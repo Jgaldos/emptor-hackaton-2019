@@ -1,0 +1,11 @@
+# Gitignore
+.gitignore
+
+# python temp
+*.pyc
+
+# pycharm
+*.idea
+
+# virtualenv
+venv
