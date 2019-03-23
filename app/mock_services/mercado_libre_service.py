@@ -5,7 +5,6 @@ from flask_restful import Resource
 mock_results = {
     '1': {
         'name': 'Jose galdos',
-        'phone': '',
         "address": {
             "state": "AR-C",
             "city": "Palermo",
@@ -25,7 +24,6 @@ mock_results = {
     },
     '2': {
         'name': 'Pedro Muñoz',
-        'phone': '',
         "address": {
             "state": "AR-C",
             "city": "Palermo",
@@ -45,7 +43,6 @@ mock_results = {
     },
     '3': {
         'name': 'Roger Peralta',
-        'phone': '',
         "address": {
             "state": "AR-C",
             "city": "Palermo",
@@ -65,7 +62,6 @@ mock_results = {
     },
     '4': {
         'name': 'Victoria Melo',
-        'phone': '',
         "address": {
             "state": "AR-C",
             "city": "Palermo",

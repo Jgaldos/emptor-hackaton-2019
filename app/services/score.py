@@ -25,11 +25,11 @@ class Score(Resource):
 
         profile_data = json.loads(profile_json)
 
-        id_data = id_score(profile_data['id'])
+        id_data = id_score(profile_data['identification'])
         name_data = name_score(profile_data['name'])
-        address_data = address_score(profile_data['address'])
+        address_data = address_score(profile_data['address']['address'])
         email_data = email_score(profile_data['email'])
-        phone_data = phone_score(profile_data['phone'])
+        phone_data = phone_score(profile_data['phone']['area_code'] + profile_data['phone']['number'])
 
         details = {
             'id': id_data['details'],
