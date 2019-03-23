@@ -2,7 +2,7 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
-import requests
+import json
 
 from app.pe .test import test_peru
 from app.services .score import Score
@@ -21,7 +21,7 @@ class Verify(Resource):
     def get(self, ml_id):
         user = Verified_ids.query.filter_by(id=ml_id).first()
         if user:
-            return user.data()
+            return json.loads(user.data()['score'])
         else:
             req_ml = MockMercadoLibre()
             response = req_ml.get(str(ml_id))
